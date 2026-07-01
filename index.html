@@ -19,7 +19,6 @@
     --serif: 'Newsreader', Georgia, serif;
     --sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     --mono: 'IBM Plex Mono', 'SF Mono', monospace;
-    --measure: 640px;
   }
 
   * { box-sizing: border-box; }
@@ -37,45 +36,50 @@
   a { color: var(--teal); text-decoration: none; border-bottom: 1px solid rgba(15, 110, 86, 0.35); }
   a:hover { border-bottom-color: var(--teal); }
 
-  .wrap { max-width: var(--measure); margin: 0 auto; padding: 0 24px; }
-
-  header.top {
-    padding: 40px 0 24px;
-    border-bottom: 1px solid var(--rule);
-  }
-  header.top .wrap {
+  .layout {
+    max-width: 1160px;
+    margin: 0 auto;
+    padding: 64px 32px 80px;
     display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    flex-wrap: wrap;
-    gap: 8px;
+    align-items: flex-start;
+    gap: 64px;
+  }
+
+  .sidebar {
+    width: 240px;
+    flex-shrink: 0;
+    position: sticky;
+    top: 56px;
   }
   .brand {
+    display: block;
     font-family: var(--serif);
     font-size: 20px;
     font-weight: 500;
     color: var(--ink);
+    margin-bottom: 24px;
   }
-  nav a {
+  .side-nav { display: flex; flex-direction: column; gap: 10px; margin: 24px 0 28px; }
+  .side-nav a {
     font-family: var(--mono);
     font-size: 12px;
     letter-spacing: 0.03em;
     color: var(--ink-muted);
     border-bottom: none;
-    margin-left: 20px;
   }
-  nav a:hover { color: var(--teal); }
-  nav a:first-child { margin-left: 0; }
+  .side-nav a:hover { color: var(--teal); }
 
-  .ref {
-    font-family: var(--mono);
-    font-size: 11px;
-    color: var(--ink-faint);
-    letter-spacing: 0.04em;
+  .content { flex: 1; min-width: 0; max-width: 720px; }
+
+  .content section { padding: 0 0 56px; margin-bottom: 56px; border-bottom: 1px solid var(--rule); }
+  .content section:last-of-type { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+
+  @media (max-width: 900px) {
+    .layout { flex-direction: column; gap: 40px; padding: 40px 24px 64px; }
+    .sidebar { width: 100%; position: static; top: auto; }
+    .side-nav { flex-direction: row; flex-wrap: wrap; gap: 8px 18px; margin: 20px 0; }
+    .content { max-width: none; }
   }
-
-  section { padding: 56px 0; border-bottom: 1px solid var(--rule); }
-  section:last-of-type { border-bottom: none; }
 
   .eyebrow {
     font-family: var(--mono);
@@ -143,27 +147,19 @@
   }
   .sim-list .desc { font-size: 15px; }
 
-  .about-grid { display: flex; gap: 32px; align-items: flex-start; }
-  .profile-col { width: 208px; flex-shrink: 0; }
   .about-photo {
-    width: 112px;
-    height: 112px;
+    width: 96px;
+    height: 96px;
     border-radius: 50%;
     object-fit: cover;
     border: 1px solid var(--rule);
   }
-  .about-text { flex: 1; min-width: 0; }
 
-  .timeline { margin: 20px 0 0; padding: 0; list-style: none; }
+  .timeline { margin: 24px 0 0; padding: 0; list-style: none; }
   .timeline li { padding: 10px 0; border-top: 1px solid var(--rule); }
   .timeline li:first-child { border-top: none; padding-top: 0; }
-  .timeline .role { margin: 0; font-size: 13.5px; font-weight: 500; line-height: 1.4; }
-  .timeline .org-date { margin: 2px 0 0; font-family: var(--mono); font-size: 11.5px; color: var(--ink-muted); }
-
-  @media (max-width: 600px) {
-    .about-grid { flex-direction: column; gap: 20px; }
-    .profile-col { width: 100%; }
-  }
+  .timeline .role { margin: 0; font-size: 13px; font-weight: 500; line-height: 1.4; }
+  .timeline .org-date { margin: 2px 0 0; font-family: var(--mono); font-size: 11px; color: var(--ink-muted); }
 
   .offer { padding: 28px 0; border-top: 1px solid var(--rule); }
   .offer:first-of-type { border-top: none; padding-top: 0; }
@@ -198,7 +194,7 @@
   }
 
   footer {
-    padding: 48px 0 60px;
+    padding: 0;
   }
   footer .contact-line {
     font-family: var(--mono);
@@ -216,65 +212,57 @@
   @media (max-width: 600px) {
     h1 { font-size: 30px; }
     .sim-list li { grid-template-columns: 1fr; gap: 4px; }
-    nav a { margin-left: 14px; font-size: 11px; }
   }
 </style>
 </head>
 <body>
 
-<header class="top">
-  <div class="wrap">
+<div class="layout">
+  <aside class="sidebar">
     <span class="brand">Nuvaid Saini</span>
-    <nav>
+    <img class="about-photo" src="assets/nuvaid-photo.jpg" alt="Nuvaid Saini">
+    <nav class="side-nav">
+      <a href="#about">About</a>
       <a href="#work">Work</a>
       <a href="#work-with-me">Work with me</a>
       <a href="#education">Education</a>
       <a href="#contact">Contact</a>
     </nav>
-  </div>
-</header>
+    <ul class="timeline">
+      <li>
+        <p class="role">Business Consultant Intern</p>
+        <p class="org-date">Blackmont Consulting · Oct 2024&ndash;Aug 2025</p>
+      </li>
+      <li>
+        <p class="role">MSc International Business</p>
+        <p class="org-date">Bayes Business School · 2023&ndash;2024</p>
+      </li>
+      <li>
+        <p class="role">Quality Engineer</p>
+        <p class="org-date">Smart Energy Water · Jul 2021&ndash;May 2023</p>
+      </li>
+      <li>
+        <p class="role">Product Analyst Intern</p>
+        <p class="org-date">Smart Energy Water · Jan&ndash;Jun 2021</p>
+      </li>
+      <li>
+        <p class="role">BE Electronics &amp; Computers</p>
+        <p class="org-date">Thapar Institute · 2017&ndash;2021</p>
+      </li>
+    </ul>
+  </aside>
+
+  <main class="content">
 
 <section id="about">
-  <div class="wrap">
-    <div class="about-grid">
-      <div class="profile-col">
-        <img class="about-photo" src="assets/nuvaid-photo.jpg" alt="Nuvaid Saini">
-        <ul class="timeline">
-          <li>
-            <p class="role">Business Consultant Intern</p>
-            <p class="org-date">Blackmont Consulting · Oct 2024&ndash;Aug 2025</p>
-          </li>
-          <li>
-            <p class="role">MSc International Business</p>
-            <p class="org-date">Bayes Business School · 2023&ndash;2024</p>
-          </li>
-          <li>
-            <p class="role">Quality Engineer</p>
-            <p class="org-date">Smart Energy Water · Jul 2021&ndash;May 2023</p>
-          </li>
-          <li>
-            <p class="role">Product Analyst Intern</p>
-            <p class="org-date">Smart Energy Water · Jan&ndash;Jun 2021</p>
-          </li>
-          <li>
-            <p class="role">BE Electronics &amp; Computers</p>
-            <p class="org-date">Thapar Institute · 2017&ndash;2021</p>
-          </li>
-        </ul>
-      </div>
-      <div class="about-text">
-        <p class="eyebrow">profile · updated 2026</p>
-        <h1>International business consultant — market strategy and growth.</h1>
-        <p class="lede">I help organizations enter new markets and improve how they operate, combining consulting rigor with a background in engineering and product.</p>
-        <p class="bio" style="margin-top:28px;">I'm an international business consultant with a background in electronics and product engineering — a combination that means I move comfortably between strategy decks and data pipelines. My work has spanned market entry strategy, AI-driven process design, and SaaS product improvement for utility clients across multiple countries. I hold an MSc in International Business from Bayes Business School (Distinction, top 10% of cohort) and a BE in Electronics and Computers from Thapar Institute of Engineering &amp; Technology.</p>
-        <p class="note">Outside of client work, I'm an International FIDE-rated chess player and coach — a discipline that shows up in how I approach strategy: think several moves ahead, then commit.</p>
-      </div>
-    </div>
-  </div>
+        <p class="eyebrow">available for new clients · 2026</p>
+        <h1>Freelance consultant for market entry, competitive research, and AI readiness.</h1>
+        <p class="lede">I take a small number of freelance engagements at a time: market entry research, competitive analysis, and AI-readiness audits for founders and small teams who need a clear answer fast.</p>
+        <p class="bio" style="margin-top:28px;">My background spans consulting and engineering. I hold an MSc in International Business from Bayes Business School (Distinction, top 10% of cohort) and a BE in Electronics and Computers from Thapar Institute of Engineering &amp; Technology. That mix means I'm equally comfortable building a strategy deck and reading a data pipeline. I've led market entry strategy for a European startup, redesigned lead-capture workflows with AI, and improved SaaS product efficiency by 70&ndash;80% for utility clients across multiple countries.</p>
+        <p class="note">Outside client work, I'm an International FIDE-rated chess player and coach. It's the same instinct I bring to strategy: think several moves ahead, then commit.</p>
 </section>
 
 <section id="work">
-  <div class="wrap">
     <h2>Selected work</h2>
 
     <article class="case">
@@ -315,11 +303,9 @@
         </li>
       </ul>
     </div>
-  </div>
 </section>
 
 <section id="work-with-me">
-  <div class="wrap">
     <h2>Work with me</h2>
     <p class="lede">Fixed-scope engagements for founders and operators who need a clear answer, not a six-week deck.</p>
 
@@ -345,11 +331,9 @@
     </article>
 
     <p class="note">Not sure which fits? <a href="mailto:nuvaid.saini@outlook.com?subject=Quick%20question">Send a two-line brief</a> and I'll tell you plainly if it's worth a paid engagement.</p>
-  </div>
 </section>
 
 <section id="education">
-  <div class="wrap">
     <h2>Education</h2>
 
     <div class="edu-item">
@@ -369,19 +353,19 @@
     <div class="tags" style="margin-top:4px;">
       <span><strong>Tools</strong> &mdash; MS Office, JIRA, Bloomberg</span>
     </div>
-  </div>
 </section>
 
 <footer id="contact">
-  <div class="wrap">
     <h2>Get in touch</h2>
     <div class="contact-line">
       <a href="mailto:nuvaid.saini@outlook.com">nuvaid.saini@outlook.com</a>
       <a href="https://www.linkedin.com/in/nuvaid-saini">LinkedIn</a>
     </div>
     <p class="fine">Nuvaid Saini — International FIDE-rated chess player · Chess coach, Galatasaray Sports School, Istanbul</p>
-  </div>
 </footer>
+
+  </main>
+</div>
 
 </body>
 </html>
