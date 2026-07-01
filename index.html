@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nuvaid Saini — International Business Consultant</title>
+<meta name="description" content="Portfolio of Nuvaid Saini, international business consultant specializing in market strategy, competitive analysis, and growth.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #F5F4F0;
+    --ink: #2A2A28;
+    --ink-muted: #6B6A64;
+    --ink-faint: #9B9A93;
+    --teal: #0F6E56;
+    --rule: rgba(42, 42, 40, 0.14);
+    --serif: 'Newsreader', Georgia, serif;
+    --sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --mono: 'IBM Plex Mono', 'SF Mono', monospace;
+    --measure: 640px;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: var(--teal); text-decoration: none; border-bottom: 1px solid rgba(15, 110, 86, 0.35); }
+  a:hover { border-bottom-color: var(--teal); }
+
+  .wrap { max-width: var(--measure); margin: 0 auto; padding: 0 24px; }
+
+  header.top {
+    padding: 40px 0 24px;
+    border-bottom: 1px solid var(--rule);
+  }
+  header.top .wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .brand {
+    font-family: var(--serif);
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--ink);
+  }
+  nav a {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    color: var(--ink-muted);
+    border-bottom: none;
+    margin-left: 20px;
+  }
+  nav a:hover { color: var(--teal); }
+  nav a:first-child { margin-left: 0; }
+
+  .ref {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-faint);
+    letter-spacing: 0.04em;
+  }
+
+  section { padding: 56px 0; border-bottom: 1px solid var(--rule); }
+  section:last-of-type { border-bottom: none; }
+
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    color: var(--teal);
+    text-transform: lowercase;
+    margin: 0 0 12px;
+  }
+
+  h1 {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 38px;
+    line-height: 1.25;
+    margin: 0 0 16px;
+    letter-spacing: -0.01em;
+  }
+  h2 {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 24px;
+    margin: 0 0 24px;
+  }
+  h3 {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 19px;
+    margin: 0 0 6px;
+    line-height: 1.4;
+  }
+
+  .lede {
+    font-size: 17px;
+    color: var(--ink-muted);
+    max-width: 54ch;
+  }
+
+  .bio { font-size: 16px; color: var(--ink); max-width: 60ch; }
+
+  .case { padding: 28px 0; border-top: 1px solid var(--rule); }
+  .case:first-of-type { border-top: none; padding-top: 0; }
+  .case .meta {
+    font-family: var(--mono);
+    font-size: 12.5px;
+    color: var(--ink-muted);
+    margin: 0 0 12px;
+  }
+  .case p.body { margin: 0; max-width: 58ch; }
+
+  .sim-list { margin: 0; padding: 0; list-style: none; }
+  .sim-list li {
+    padding: 16px 0;
+    border-top: 1px solid var(--rule);
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    gap: 16px;
+  }
+  .sim-list li:first-child { border-top: none; }
+  .sim-list .org {
+    font-family: var(--mono);
+    font-size: 12.5px;
+    color: var(--ink-muted);
+    padding-top: 2px;
+  }
+  .sim-list .desc { font-size: 15px; }
+
+  .about-grid { display: flex; gap: 32px; align-items: flex-start; }
+  .profile-col { width: 208px; flex-shrink: 0; }
+  .about-photo {
+    width: 112px;
+    height: 112px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid var(--rule);
+  }
+  .about-text { flex: 1; min-width: 0; }
+
+  .timeline { margin: 20px 0 0; padding: 0; list-style: none; }
+  .timeline li { padding: 10px 0; border-top: 1px solid var(--rule); }
+  .timeline li:first-child { border-top: none; padding-top: 0; }
+  .timeline .role { margin: 0; font-size: 13.5px; font-weight: 500; line-height: 1.4; }
+  .timeline .org-date { margin: 2px 0 0; font-family: var(--mono); font-size: 11.5px; color: var(--ink-muted); }
+
+  @media (max-width: 600px) {
+    .about-grid { flex-direction: column; gap: 20px; }
+    .profile-col { width: 100%; }
+  }
+
+  .offer { padding: 28px 0; border-top: 1px solid var(--rule); }
+  .offer:first-of-type { border-top: none; padding-top: 0; }
+  .offer p.body { margin: 0 0 14px; max-width: 58ch; }
+  .offer-cta {
+    font-family: var(--mono);
+    font-size: 13px;
+    letter-spacing: 0.02em;
+  }
+
+  .edu-item { margin-bottom: 28px; }
+  .edu-item:last-child { margin-bottom: 0; }
+  .edu-item .school {
+    font-family: var(--mono);
+    font-size: 12.5px;
+    color: var(--ink-muted);
+    margin: 4px 0 8px;
+  }
+  .edu-item .detail { font-size: 15px; color: var(--ink-muted); max-width: 58ch; }
+
+  .tags { display: flex; flex-wrap: wrap; gap: 8px 20px; margin-top: 8px; }
+  .tags span { font-family: var(--mono); font-size: 13px; color: var(--ink-muted); }
+  .tags strong { color: var(--ink); font-weight: 500; }
+
+  .note {
+    font-size: 15px;
+    color: var(--ink-muted);
+    border-left: 2px solid var(--teal);
+    padding-left: 16px;
+    margin-top: 32px;
+    max-width: 56ch;
+  }
+
+  footer {
+    padding: 48px 0 60px;
+  }
+  footer .contact-line {
+    font-family: var(--mono);
+    font-size: 14px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 24px;
+  }
+  footer .fine {
+    margin-top: 24px;
+    font-size: 12.5px;
+    color: var(--ink-faint);
+  }
+
+  @media (max-width: 600px) {
+    h1 { font-size: 30px; }
+    .sim-list li { grid-template-columns: 1fr; gap: 4px; }
+    nav a { margin-left: 14px; font-size: 11px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <span class="brand">Nuvaid Saini</span>
+    <nav>
+      <a href="#work">Work</a>
+      <a href="#work-with-me">Work with me</a>
+      <a href="#education">Education</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section id="about">
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="profile-col">
+        <img class="about-photo" src="assets/nuvaid-photo.jpg" alt="Nuvaid Saini">
+        <ul class="timeline">
+          <li>
+            <p class="role">Business Consultant Intern</p>
+            <p class="org-date">Blackmont Consulting · Oct 2024&ndash;Aug 2025</p>
+          </li>
+          <li>
+            <p class="role">MSc International Business</p>
+            <p class="org-date">Bayes Business School · 2023&ndash;2024</p>
+          </li>
+          <li>
+            <p class="role">Quality Engineer</p>
+            <p class="org-date">Smart Energy Water · Jul 2021&ndash;May 2023</p>
+          </li>
+          <li>
+            <p class="role">Product Analyst Intern</p>
+            <p class="org-date">Smart Energy Water · Jan&ndash;Jun 2021</p>
+          </li>
+          <li>
+            <p class="role">BE Electronics &amp; Computers</p>
+            <p class="org-date">Thapar Institute · 2017&ndash;2021</p>
+          </li>
+        </ul>
+      </div>
+      <div class="about-text">
+        <p class="eyebrow">profile · updated 2026</p>
+        <h1>International business consultant — market strategy and growth.</h1>
+        <p class="lede">I help organizations enter new markets and improve how they operate, combining consulting rigor with a background in engineering and product.</p>
+        <p class="bio" style="margin-top:28px;">I'm an international business consultant with a background in electronics and product engineering — a combination that means I move comfortably between strategy decks and data pipelines. My work has spanned market entry strategy, AI-driven process design, and SaaS product improvement for utility clients across multiple countries. I hold an MSc in International Business from Bayes Business School (Distinction, top 10% of cohort) and a BE in Electronics and Computers from Thapar Institute of Engineering &amp; Technology.</p>
+        <p class="note">Outside of client work, I'm an International FIDE-rated chess player and coach — a discipline that shows up in how I approach strategy: think several moves ahead, then commit.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="work">
+  <div class="wrap">
+    <h2>Selected work</h2>
+
+    <article class="case">
+      <p class="eyebrow">market entry · startups</p>
+      <h3>Spain to Czech Republic market entry strategy</h3>
+      <p class="meta">Blackmont Consulting — Business Consultant Intern</p>
+      <p class="body">Designed a market entry strategy for a Spanish startup expanding into the Czech Republic. Built the case through demographic analysis, market research, and competitive analysis, identifying business-specific KPIs tailored to local market and cultural factors to distinguish blue ocean opportunities from red ocean ones.</p>
+    </article>
+
+    <article class="case">
+      <p class="eyebrow">process automation · sales ops</p>
+      <h3>AI-powered lead capture and UX optimization</h3>
+      <p class="meta">Blackmont Consulting — Business Consultant Intern</p>
+      <p class="body">Identified and recommended AI-powered solutions to automatically capture and track leads, reducing manual effort and strengthening the sales funnel. Collaborated with designers to improve the digital UX around inquiry channels, lifting web inquiries by 12%.</p>
+    </article>
+
+    <article class="case">
+      <p class="eyebrow">product · SaaS</p>
+      <h3>SaaS product efficiency overhaul for utility clients</h3>
+      <p class="meta">Smart Energy Water — Quality Engineer &amp; Product Analyst Intern</p>
+      <p class="body">Improved SaaS product efficiency by 70&ndash;80% through system upgrades, business requirement analysis, and API testing in an Agile/Scrum environment. Partnered with product managers and developers to customize solutions for 5+ large-scale utility projects, including the City of Fort Worth.</p>
+    </article>
+
+    <div style="margin-top:48px;">
+      <p class="eyebrow" style="margin-bottom:16px;">case studies — Bayes Consulting Society</p>
+      <ul class="sim-list">
+        <li>
+          <span class="org">Telenor Group</span>
+          <span class="desc">Business expansion strategy focused on improving operational efficiency and leveraging competitive and technological advantages.</span>
+        </li>
+        <li>
+          <span class="org">Wings &amp; Legs</span>
+          <span class="desc">Operational strategy to enhance supply chain agility by optimizing the decoupling point against consumer demand.</span>
+        </li>
+        <li>
+          <span class="org">BP vs. Shell vs. Chevron</span>
+          <span class="desc">Financial analysis benchmarking ROA, ROCE, and cash flows (2020&ndash;2022) to formulate an efficiency-focused strategy.</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="work-with-me">
+  <div class="wrap">
+    <h2>Work with me</h2>
+    <p class="lede">Fixed-scope engagements for founders and operators who need a clear answer, not a six-week deck.</p>
+
+    <article class="offer">
+      <p class="eyebrow">market entry</p>
+      <h3>Market entry / expansion snapshot</h3>
+      <p class="body">A structured go/no-go report before you commit resources to a new market: demand signals, competitive landscape, and a clear recommendation.</p>
+      <a class="offer-cta" href="mailto:nuvaid.saini@outlook.com?subject=Market%20entry%20snapshot%20inquiry">Get a quote &rarr;</a>
+    </article>
+
+    <article class="offer">
+      <p class="eyebrow">research</p>
+      <h3>Competitive &amp; market research report</h3>
+      <p class="body">Fast turnaround, fixed fee. Who you're actually up against, where the gaps are, and what to do about it.</p>
+      <a class="offer-cta" href="mailto:nuvaid.saini@outlook.com?subject=Competitive%20%26%20market%20research%20inquiry">Get a quote &rarr;</a>
+    </article>
+
+    <article class="offer">
+      <p class="eyebrow">automation</p>
+      <h3>AI opportunity audit</h3>
+      <p class="body">A free 30-minute diagnostic identifying where AI can save you time. Paid implementation only if it's worth doing.</p>
+      <a class="offer-cta" href="mailto:nuvaid.saini@outlook.com?subject=AI%20opportunity%20audit%20inquiry">Book the free audit &rarr;</a>
+    </article>
+
+    <p class="note">Not sure which fits? <a href="mailto:nuvaid.saini@outlook.com?subject=Quick%20question">Send a two-line brief</a> and I'll tell you plainly if it's worth a paid engagement.</p>
+  </div>
+</section>
+
+<section id="education">
+  <div class="wrap">
+    <h2>Education</h2>
+
+    <div class="edu-item">
+      <h3>MSc International Business</h3>
+      <p class="school">Bayes Business School (formerly Cass), London — Distinction, top 10% of cohort · 2023&ndash;2024</p>
+      <p class="detail">Coursework: Accounting, International Finance, Macroeconomics, Strategy in a Global Context.</p>
+    </div>
+
+    <div class="edu-item">
+      <h3>BE Electronics and Computers</h3>
+      <p class="school">Thapar Institute of Engineering &amp; Technology, Patiala, India · 2017&ndash;2021</p>
+    </div>
+
+    <div class="tags">
+      <span><strong>Certifications</strong> &mdash; McKinsey Forward Program, Bloomberg Market Concepts, Bloomberg Finance Fundamentals</span>
+    </div>
+    <div class="tags" style="margin-top:4px;">
+      <span><strong>Tools</strong> &mdash; MS Office, JIRA, Bloomberg</span>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap">
+    <h2>Get in touch</h2>
+    <div class="contact-line">
+      <a href="mailto:nuvaid.saini@outlook.com">nuvaid.saini@outlook.com</a>
+      <a href="https://www.linkedin.com/in/nuvaid-saini">LinkedIn</a>
+    </div>
+    <p class="fine">Nuvaid Saini — International FIDE-rated chess player · Chess coach, Galatasaray Sports School, Istanbul</p>
+  </div>
+</footer>
+
+</body>
+</html>
